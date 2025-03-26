@@ -37,8 +37,9 @@ def callback():
 def handle_message(event):
     text = event.message.text
     user_id = event.source.user_id
+    print(user_id)
     requests.post(os.getenv('DISCORD_WEBHOOK_URL'), json={
-        "content": f"[LINE] {user_id}: {text}"
+        "content": f"{text}"
     })
 
 # 推送 LINE 訊息的函式
