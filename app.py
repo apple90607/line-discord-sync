@@ -56,7 +56,8 @@ def send_line_message(text):
         }]
     }
     r = requests.post("https://api.line.me/v2/bot/message/push", headers=headers, json=body)
-    print("LINE 推送結果：", r.status_code)
+    print("LINE 回傳狀態：", r.status_code)
+    print("LINE 回傳內容：", r.text)
 
 # Discord 事件設定
 @client.event
@@ -65,9 +66,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    print("收到訊息：", message.content)  # 加這行
     if message.author.bot:
         return
-    if message.channel.name == "general":  # 根據你要監聽的頻道調整
+    if message.channel.name == "ㄚㄚㄚㄚㄚㄚㄚㄚㄚ":  # 根據你要監聽的頻道調整
         text = f"[Discord] {message.author.name}: {message.content}"
         send_line_message(text)
 
