@@ -23,6 +23,10 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+@app.route("/")
+def home():
+    return "Hello! I'm alive."
+
 # Flask 路由設定
 @app.route("/callback", methods=['POST'])
 def callback():
